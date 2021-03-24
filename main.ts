@@ -31,6 +31,8 @@ radio.onReceivedValue(function (name, value) {
         y = value
     } else if (name == "z") {
         z = value
+    } else if (name == "sound") {
+        sound = value
     }
     if (name == "Movement") {
         basic.showString("M=")
@@ -48,6 +50,7 @@ radio.onReceivedValue(function (name, value) {
             `)
     }
 })
+let sound = 0
 let z = 0
 let y = 0
 let x = 0
@@ -66,5 +69,6 @@ basic.forever(function () {
         serial.writeValue("x", x)
         serial.writeValue("y", y)
         serial.writeValue("z", z)
+        serial.writeValue("sound", sound)
     }
 })
